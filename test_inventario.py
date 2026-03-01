@@ -38,3 +38,14 @@ def test_consultar_item():
    
     articulo_no_encontrado = mi_almacen.consultar_item("Lámpara LED")
     assert articulo_no_encontrado is None
+
+def test_obtener_catalogo():
+    mi_almacen = Almacen()
+    mi_almacen.agregar_item("Cable HDMI", 50, 15.0)
+    mi_almacen.agregar_item("Adaptador USB-C", 30, 25.0)
+
+    catalogo = mi_almacen.obtener_catalogo()
+
+    assert len(catalogo) == 2
+    assert catalogo[0]["descripcion"] == "Cable HDMI"
+    assert catalogo[1]["descripcion"] == "Adaptador USB-C"

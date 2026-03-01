@@ -34,3 +34,6 @@ class Almacen:
         
         # Si termina el ciclo y no lo encuentra, retorna None
         return None
+    
+    def obtener_catalogo(self):
+        return self.articulos
