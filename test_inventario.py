@@ -30,11 +30,11 @@ def test_consultar_item():
     mi_almacen.agregar_item("Silla Ergonómica", 5, 120.5)
     mi_almacen.agregar_item("Escritorio de Madera", 2, 250.0)
 
-    # Prueba de éxito: consultar un artículo que sí existe
+    
     articulo_encontrado = mi_almacen.consultar_item("Silla Ergonómica")
     assert articulo_encontrado is not None
     assert articulo_encontrado["descripcion"] == "Silla Ergonómica"
     
-    # Prueba del refactor: consultar un artículo que NO existe
+   
     articulo_no_encontrado = mi_almacen.consultar_item("Lámpara LED")
     assert articulo_no_encontrado is None
