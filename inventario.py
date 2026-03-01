@@ -25,4 +25,7 @@ class Almacen:
                 
     
         return False
+    
+    def consultar_item(self, descripcion):
+        return self.articulos[0]
 
