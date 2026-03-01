@@ -35,5 +35,5 @@ class Almacen:
         # Si termina el ciclo y no lo encuentra, retorna None
         return None
     
-    def obtener_catalogo(self):
+    def obtener_catalogo(self) -> List[Dict[str, Union[str, int, float]]]:
         return self.articulos
