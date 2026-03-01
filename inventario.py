@@ -1,5 +1,5 @@
 # test_almacen.py
-from typing import List, Dict, Union
+from typing import List, Dict, Optional, Union
 
 class Almacen:
     def __init__(self):
@@ -26,6 +26,11 @@ class Almacen:
     
         return False
     
-    def consultar_item(self, descripcion):
-        return self.articulos[0]
-
+    def consultar_item(self, descripcion: str) -> Optional[Dict[str, Union[str, int, float]]]:
+        # Búsqueda real del artículo
+        for item in self.articulos:
+            if item["descripcion"] == descripcion:
+                return item
+        
+        # Si termina el ciclo y no lo encuentra, retorna None
+        return None

@@ -25,14 +25,16 @@ def test_modificar_stock():
     assert mi_almacen.modificar_stock("Teclado Mecánico", -5) == False 
     assert mi_almacen.modificar_stock("Pantalla Rota", 5) == False
 
-
 def test_consultar_item():
     mi_almacen = Almacen()
     mi_almacen.agregar_item("Silla Ergonómica", 5, 120.5)
+    mi_almacen.agregar_item("Escritorio de Madera", 2, 250.0)
 
-    articulo = mi_almacen.consultar_item("Silla Ergonómica")
-
-    assert articulo is not None
-    assert articulo["descripcion"] == "Silla Ergonómica"
-    assert articulo["stock"] == 5
-    assert articulo["costo"] == 120.5
+    # Prueba de éxito: consultar un artículo que sí existe
+    articulo_encontrado = mi_almacen.consultar_item("Silla Ergonómica")
+    assert articulo_encontrado is not None
+    assert articulo_encontrado["descripcion"] == "Silla Ergonómica"
+    
+    # Prueba del refactor: consultar un artículo que NO existe
+    articulo_no_encontrado = mi_almacen.consultar_item("Lámpara LED")
+    assert articulo_no_encontrado is None
